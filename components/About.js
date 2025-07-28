@@ -1,6 +1,17 @@
 import React from "react";
 import Section from "./Section";
 import { GraduationCap, Settings } from "lucide-react";
+import {
+  FaJava,
+  FaPython,
+  FaHtml5,
+  FaCss3Alt,
+  FaDocker,
+  FaGitAlt,
+  FaGithub,
+  FaDatabase,
+} from "react-icons/fa";
+import { SiCplusplus, SiDjango, SiFastapi } from "react-icons/si";
 
 const About = () => (
   <Section id="about" className="bg-gray-900/50 backdrop-blur-sm">
@@ -31,6 +42,10 @@ const About = () => (
             <p className="text-sm text-gray-500">
               Expected Graduation: June 2027
             </p>
+            <h4 className="font-bold text-lg text-white mt-4">
+              Backend Web Development with Django
+            </h4>
+            <p className="text-gray-400">Google Developers Club</p>
           </div>
         </div>
         <div className="bg-gray-800/50 p-8 rounded-2xl border border-neutral-700 shadow-lg">
@@ -42,24 +57,58 @@ const About = () => (
           </div>
           <div className="flex flex-wrap gap-3">
             {[
-              "Java",
-              "Python",
-              "C++",
-              "SQL",
-              "HTML5",
-              "CSS3",
-              "Django",
-              "FastAPI",
-              "Docker",
-              "Git",
-              "GitHub",
+              {
+                name: "Java",
+                icon: <FaJava className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "Python",
+                icon: <FaPython className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "C++",
+                icon: <SiCplusplus className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "SQL",
+                icon: <FaDatabase className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "HTML5",
+                icon: <FaHtml5 className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "CSS3",
+                icon: <FaCss3Alt className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "Django",
+                icon: <SiDjango className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "FastAPI",
+                icon: <SiFastapi className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "Docker",
+                icon: <FaDocker className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "Git",
+                icon: <FaGitAlt className="text-2xl text-gray-300" />,
+              },
+              {
+                name: "GitHub",
+                icon: <FaGithub className="text-2xl text-gray-300" />,
+              },
             ].map((skill) => (
-              <span
-                key={skill}
-                className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm font-medium"
+              <div
+                key={skill.name}
+                className="bg-gray-700 p-2 rounded-full text-sm font-medium flex items-center justify-center"
+                title={skill.name}
               >
-                {skill}
-              </span>
+                {skill.icon}
+              </div>
             ))}
           </div>
         </div>

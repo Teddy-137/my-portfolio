@@ -20,7 +20,7 @@ const Hero = () => (
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <a
               href="#contact"
-              className="px-6 py-3 bg-purple-600 text-white font-medium rounded-lg shadow-lg hover:bg-purple-700 transition duration-300"
+              className="px-6 py-3 bg-gradient-to-r from-sky-400 to-purple-500 text-white font-medium rounded-lg shadow-lg hover:bg-purple-700 transition duration-300"
             >
               Get In Touch
             </a>
