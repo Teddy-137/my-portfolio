@@ -11,6 +11,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import Dock from "../components/Dock";
+import Head from "next/head";
 
 export default function App() {
   return (
@@ -18,6 +19,15 @@ export default function App() {
       <div className="text-gray-200 font-sans">
         <AnimatedBg />
         <div className="relative z-10">
+          <Head>
+            <title>web</title>
+            <meta name="description" content="Tewodros Anteneh's Portfolio" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
           <ScrollProgress />
           <main>
             <Hero />
