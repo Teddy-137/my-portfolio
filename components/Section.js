@@ -5,6 +5,9 @@ const Section = ({ id, children, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const element = ref.current; // Store ref.current in a variable
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,11 +18,11 @@ const Section = ({ id, children, className = "" }) => {
       { threshold: 0.1 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(element);
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      observer.unobserve(element); // Use stored variable
     };
-  }, []);
+  }, []); // Empty dependency array is fine since ref is stable
 
   return (
     <section
