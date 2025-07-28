@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "./Section";
 import SpotlightCard from "./SpotlightCard";
+import Image from "next/image";
 
 const Portfolio = () => {
   const projects = [
@@ -41,7 +42,7 @@ const Portfolio = () => {
                 className="block rounded-2xl overflow-hidden"
               >
                 <div className="relative h-56">
-                  <img
+                  <Image
                     src={p.imageUrl}
                     alt={p.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"

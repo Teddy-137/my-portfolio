@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "./Section";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Hero = () => (
   <Section id="home" className="flex items-center justify-center">
@@ -8,7 +9,7 @@ const Hero = () => (
       <div className="lg:flex lg:items-center lg:justify-between">
         <div className="lg:w-1/2">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500">
-          Hi, I&apos;m Tewodros Anteneh
+            Hi, I&apos;m Tewodros Anteneh
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-400 mb-6">
             Electrical & Computer Engineering Student | Backend Web Developer
@@ -43,8 +44,8 @@ const Hero = () => (
               ease: "easeInOut",
             }}
           >
-            <img
-              src="/assets/images/your-profile-photo.jpg"
+            <Image
+              src="/assets/images/profile.jpg"
               alt="Tewodros Anteneh"
               className="w-full h-full object-cover"
             />
