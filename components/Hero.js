@@ -13,7 +13,7 @@ const Hero = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Hi, I'm Tewodros Anteneh
+        Hi, I&apos;m Tewodros Anteneh
       </motion.h1>
 
       {/* --- Subheading --- */}
