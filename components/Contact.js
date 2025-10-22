@@ -292,29 +292,6 @@ const Contact = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-sky-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-xl">📧</span>
-            </div>
-            <h3 className="text-white font-semibold mb-2">Email</h3>
-            <p className="text-gray-400">tewodros@example.com</p>
-          </div>
-
-          <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-sky-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-xl">📱</span>
-            </div>
-            <h3 className="text-white font-semibold mb-2">Phone</h3>
-            <p className="text-gray-400">+251 911 234 567</p>
-          </div>
-
-          <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-sky-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-xl">📍</span>
-            </div>
-            <h3 className="text-white font-semibold mb-2">Location</h3>
-            <p className="text-gray-400">Addis Ababa, Ethiopia</p>
-          </div>
         </motion.div>
       </div>
     </Section>

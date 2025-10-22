@@ -35,7 +35,7 @@ const Portfolio = () => {
       return projects;
     }
     return projects.filter((project) => project.category === activeFilter);
-  }, [activeFilter]);
+  }, [activeFilter, projects]);
 
   return (
     <Section id="portfolio">

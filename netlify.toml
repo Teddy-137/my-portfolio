@@ -9,3 +9,15 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Enable Next.js Image Optimization
+[[redirects]]
+  from = "/_next/image/*"
+  to = "/_next/image/:splat"
+  status = 200
+
+# Enable Next.js static optimization
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200

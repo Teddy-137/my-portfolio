@@ -61,7 +61,7 @@ const SpotlightCard = ({
       animate={{
         borderColor: isHovered ? "rgba(139, 92, 246, 0.5)" : "rgba(38, 38, 38, 1)"
       }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Spotlight Effect */}
       <motion.div

@@ -217,7 +217,7 @@ const Awards = () => {
             >
               #1
             </motion.div>
-            <p className="text-gray-400">Nationwide</p>
+            <p className="text-gray-400">IYMC</p>
             <p className="text-sm text-gray-500">Mathematics</p>
           </motion.div>
 
@@ -238,7 +238,7 @@ const Awards = () => {
               🥈
             </motion.div>
             <p className="text-gray-400">Silver Honor</p>
-            <p className="text-sm text-gray-500">International</p>
+            <p className="text-sm text-gray-500">Mathematics</p>
           </motion.div>
         </motion.div>
       </div>
