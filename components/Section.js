@@ -1,39 +1,25 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
 const Section = ({ id, children, className = "" }) => {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current; // Store ref.current in a variable
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(element);
-    return () => {
-      observer.unobserve(element); // Use stored variable
-    };
-  }, []); // Empty dependency array is fine since ref is stable
-
   return (
-    <section
+    <motion.section
       id={id}
-      ref={ref}
-      className={`py-20 min-h-screen transition-opacity duration-1000 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      } ${className}`}
+      className={`py-20 min-h-screen ${className}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      {children}
-    </section>
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-50px" }}
+      >
+        {children}
+      </motion.div>
+    </motion.section>
   );
 };
 

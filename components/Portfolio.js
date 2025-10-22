@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Section from "./Section";
 import SpotlightCard from "./SpotlightCard";
 import Image from "next/image";
 
 const Portfolio = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+
   const projects = [
     {
       title: "MediHelp Plus",
@@ -12,6 +14,7 @@ const Portfolio = () => {
       tags: ["Django", "PostgreSQL", "Docker", "Gemini API"],
       imageUrl: "/assets/images/thumbnail.png",
       link: "https://medihelp-frontend-ntx5.vercel.app/",
+      category: ["Web Development", "Full Stack", "AI/ML"],
     },
     {
       title: "Terminal Chat",
@@ -20,8 +23,18 @@ const Portfolio = () => {
       tags: ["Java", "Sockets", "Multi-threading"],
       imageUrl: "/assets/images/terminal.png",
       link: "https://github.com/Teddy-137/Terminal-Chat",
+      category: "Backend Development",
     },
   ];
+
+  const categories = ["All", "Web Development", "Backend Development", "AI/ML", "Full Stack"];
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "All") {
+      return projects;
+    }
+    return projects.filter((project) => project.category === activeFilter);
+  }, [activeFilter]);
 
   return (
     <Section id="portfolio">
@@ -32,19 +45,37 @@ const Portfolio = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-purple-500 mx-auto rounded-full"></div>
         </div>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveFilter(category)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeFilter === category
+                  ? "bg-gradient-to-r from-sky-400 to-purple-500 text-white shadow-lg"
+                  : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((p) => (
-            <SpotlightCard key={p.title} className="group">
+          {filteredProjects.map((project) => (
+            <SpotlightCard key={project.title} className="group">
               <a
-                href={p.link}
+                href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-2xl overflow-hidden"
               >
                 <div className="relative h-56">
                   <Image
-                    src={p.imageUrl}
-                    alt={p.title}
+                    src={project.imageUrl}
+                    alt={project.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -52,11 +83,11 @@ const Portfolio = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-white mb-2">
-                    {p.title}
+                    {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-4">{p.description}</p>
+                  <p className="text-gray-400 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {p.tags.map((tag) => (
+                    {project.tags.map((tag) => (
                       <span
                         key={tag}
                         className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs font-medium"
@@ -70,6 +101,12 @@ const Portfolio = () => {
             </SpotlightCard>
           ))}
         </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-lg">No projects found in this category.</p>
+          </div>
+        )}
       </div>
     </Section>
   );
