@@ -49,8 +49,11 @@ const SpotlightCard = ({
       onMouseLeave={handleMouseLeave}
       className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden p-8 ${className}`}
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6 }
+      }}
       viewport={{ once: true }}
       whileHover={{
         y: -8,
