@@ -2,17 +2,20 @@
 import React, { useState, useEffect } from 'react';
 
 const ScrollProgress = () => {
-  const [width, setWidth] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setWidth((window.scrollY / scrollHeight) * 100);
+      setScrollProgress((window.scrollY / scrollHeight) * 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-50" style={{ width: `${width}%` }} />;
+  return (
+    <div className="fixed top-0 left-0 w-full h-0.5 bg-neutral-800 z-50">
+      <div className="h-0.5 bg-gradient-to-r from-sky-400/70 to-purple-400/70 transition-all duration-300 ease-out" style={{ width: `${scrollProgress}%` }}></div>
+    </div>
+  );
 };
 
 export default ScrollProgress;
- 

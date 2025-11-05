@@ -62,112 +62,49 @@ const Awards = () => {
           {awardsList.map((award, index) => (
             <motion.div
               key={award.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
               viewport={{ once: true }}
-              whileHover={{
-                y: -10,
-                scale: 1.05,
-              }}
             >
-              <SpotlightCard className="text-center h-full">
-                <div className="bg-gray-800/50 p-8 rounded-2xl border border-neutral-700 shadow-lg h-full flex flex-col">
+              <SpotlightCard className="text-center h-full flex flex-col">
                   {/* Animated Icon Container */}
-                  <motion.div
-                    className={`w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br ${award.gradient} shadow-lg`}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 5,
-                      boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)"
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <motion.div
-                      animate={{
-                        y: [0, -5, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      {award.icon}
-                    </motion.div>
-                  </motion.div>
+                  <div className={`w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br ${award.gradient} shadow-lg`}>
+                    {award.icon}
+                  </div>
 
-                  <motion.h3
-                    className="text-xl font-semibold text-white mb-2"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                    viewport={{ once: true }}
-                  >
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     {award.title}
-                  </motion.h3>
+                  </h3>
 
-                  <motion.p
-                    className="text-purple-400 mb-3 font-semibold text-lg"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
-                    viewport={{ once: true }}
-                  >
+                  <p className="text-purple-300 mb-3 font-medium text-base">
                     {award.category}
-                  </motion.p>
+                  </p>
 
-                  <motion.p
-                    className="text-gray-400 mb-6 flex-grow"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
-                    viewport={{ once: true }}
-                  >
+                  <p className="text-gray-400 mb-6 flex-grow">
                     {award.description}
-                  </motion.p>
+                  </p>
 
-                  <motion.div
-                    className="flex flex-wrap gap-2 justify-center mb-4"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.6 }}
-                    viewport={{ once: true }}
-                  >
+                  <div className="flex flex-wrap gap-2 justify-center mb-4">
                     {award.tags.map((tag) => (
-                      <motion.span
+                      <span
                         key={tag}
-                        className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-600"
-                        whileHover={{
-                          scale: 1.05,
-                          backgroundColor: "rgba(139, 92, 246, 0.2)",
-                          borderColor: "rgba(139, 92, 246, 0.5)"
-                        }}
-                        transition={{ duration: 0.2 }}
+                        className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-600 hover:border-gray-500 transition-colors duration-200"
                       >
                         {tag}
-                      </motion.span>
+                      </span>
                     ))}
-                  </motion.div>
+                  </div>
 
-                  <motion.a
+                  <a
                     href={award.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-400 hover:text-purple-300 transition-colors font-medium inline-flex items-center gap-2 justify-center"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.7 }}
-                    viewport={{ once: true }}
-                    whileHover={{
-                      scale: 1.05,
-                      textShadow: "0 0 8px rgba(139, 92, 246, 0.6)"
-                    }}
+                    className="text-purple-300 hover:text-purple-200 transition-colors duration-200 font-medium inline-flex items-center gap-2 justify-center"
                   >
                     <AwardIcon className="w-4 h-4" />
                     View Certificate
-                  </motion.a>
-                </div>
+                  </a>
               </SpotlightCard>
             </motion.div>
           ))}
@@ -176,70 +113,34 @@ const Awards = () => {
         {/* Achievement Stats */}
         <motion.div
           className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <motion.div
-            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(139, 92, 246, 0.2)"
-            }}
-          >
-            <motion.div
-              className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-2"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.5, type: "spring" }}
-              viewport={{ once: true }}
-            >
+          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-gray-600 transition-colors duration-300">
+            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-2">
               1st
-            </motion.div>
+            </div>
             <p className="text-gray-400">Place Winner</p>
             <p className="text-sm text-gray-500">Tech Fest 2025</p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(139, 92, 246, 0.2)"
-            }}
-          >
-            <motion.div
-              className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500 mb-2"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
-              viewport={{ once: true }}
-            >
+          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-gray-600 transition-colors duration-300">
+            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500 mb-2">
               #1
-            </motion.div>
+            </div>
             <p className="text-gray-400">IYMC</p>
             <p className="text-sm text-gray-500">Mathematics</p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(139, 92, 246, 0.2)"
-            }}
-          >
-            <motion.div
-              className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.7, type: "spring" }}
-              viewport={{ once: true }}
-            >
+          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-gray-600 transition-colors duration-300">
+            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2">
               🥈
-            </motion.div>
+            </div>
             <p className="text-gray-400">Silver Honor</p>
             <p className="text-sm text-gray-500">Mathematics</p>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </Section>

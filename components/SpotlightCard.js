@@ -30,7 +30,7 @@ const SpotlightCard = ({
   };
 
   const handleMouseEnter = () => {
-    setOpacity(0.6);
+    setOpacity(0.3);
     setIsHovered(true);
   };
 
@@ -99,13 +99,10 @@ const SpotlightCard = ({
         }}
       />
 
-      {/* Content with enhanced animations */}
-      <motion.div
-        animate={isHovered ? { y: -2 } : { y: 0 }}
-        transition={{ duration: 0.2 }}
-      >
+      {/* Content */}
+      <div className="relative z-10">
         {children}
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

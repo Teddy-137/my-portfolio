@@ -2,7 +2,7 @@ import React from "react";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 const Footer = () => (
-  <footer className="py-12 text-center text-gray-400">
+  <footer className="py-12 text-center text-gray-400 bg-gray-900/30 backdrop-blur-sm border-t border-neutral-700/50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-center space-x-6 mb-4">
         <a

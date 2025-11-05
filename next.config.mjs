@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["medihelp-frontend-ntx5.vercel.app"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'medihelp-frontend-ntx5.vercel.app',
+      },
+    ],
+    unoptimized: false,
   },
 };
 

@@ -116,7 +116,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="bg-gray-800/50 p-8 rounded-2xl border border-neutral-700 shadow-lg"
+          className="bg-gray-800/50 p-8 rounded-3xl border border-neutral-700 shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -170,7 +170,7 @@ const Contact = () => {
                   className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:ring-2 focus:outline-none transition-colors duration-300 ${
                     errors.name
                       ? "border-red-500 focus:ring-red-500"
-                      : "border-neutral-600 focus:ring-purple-500 focus:border-purple-500"
+                      : "border-neutral-700 focus:ring-purple-500 focus:border-purple-500"
                   }`}
                   placeholder="Your full name"
                 />
@@ -195,7 +195,7 @@ const Contact = () => {
                   className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:ring-2 focus:outline-none transition-colors duration-300 ${
                     errors.email
                       ? "border-red-500 focus:ring-red-500"
-                      : "border-neutral-600 focus:ring-purple-500 focus:border-purple-500"
+                      : "border-neutral-700 focus:ring-purple-500 focus:border-purple-500"
                   }`}
                   placeholder="your.email@example.com"
                 />
@@ -221,7 +221,7 @@ const Contact = () => {
                 className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:ring-2 focus:outline-none transition-colors duration-300 ${
                   errors.subject
                     ? "border-red-500 focus:ring-red-500"
-                    : "border-neutral-600 focus:ring-purple-500 focus:border-purple-500"
+                    : "border-neutral-700 focus:ring-purple-500 focus:border-purple-500"
                 }`}
                 placeholder="What's this about?"
               />
@@ -246,7 +246,7 @@ const Contact = () => {
                 className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:ring-2 focus:outline-none transition-colors duration-300 resize-none ${
                   errors.message
                     ? "border-red-500 focus:ring-red-500"
-                    : "border-neutral-600 focus:ring-purple-500 focus:border-purple-500"
+                    : "border-neutral-700 focus:ring-purple-500 focus:border-purple-500"
                 }`}
                 placeholder="Tell me about your project or just say hello..."
               />

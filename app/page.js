@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import ThemeProvider from "../components/ThemeProvider";
-import Prism from "../components/prism";
 import ScrollProgress from "../components/ScrollProgress";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -11,6 +11,13 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import Dock from "../components/Dock";
+
+
+// Lazy load the DarkVeil background component
+const DarkVeil = dynamic(() => import("../components/DarkVeil"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-black" />
+});
 
 export default function App() {
   return (
@@ -25,16 +32,14 @@ export default function App() {
           zIndex: -1,
           background: 'transparent'
         }}>
-          <Prism
-            animationType="rotate"
-            timeScale={0.5}
-            height={3.5}
-            baseWidth={5.5}
-            scale={2.5}
-            hueShift={0}
-            colorFrequency={1}
-            noise={0}
-            glow={1}
+          <DarkVeil
+            speed={0.3}
+            hueShift={260}
+            noiseIntensity={0.02}
+            scanlineIntensity={0}
+            scanlineFrequency={0}
+            warpAmount={0.3}
+            resolutionScale={0.8}
           />
         </div>
         <div className="relative z-10">
