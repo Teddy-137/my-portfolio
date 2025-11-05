@@ -7,7 +7,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import { Home, User, FolderGit, Star, Award, Mail } from "lucide-react";
+import { Home, User, FolderGit, Award, Mail, Github, Linkedin } from "lucide-react";
 
 function DockItem({
   children,
@@ -111,62 +111,105 @@ const Dock = ({
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleExternalLink = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   const items = [
     {
       href: "#home",
       label: "Home",
       icon: <Home />,
       onClick: (e) => handleLinkClick(e, "#home"),
+      type: "internal"
     },
     {
       href: "#about",
       label: "About",
       icon: <User />,
       onClick: (e) => handleLinkClick(e, "#about"),
+      type: "internal"
     },
     {
       href: "#portfolio",
       label: "Portfolio",
       icon: <FolderGit />,
       onClick: (e) => handleLinkClick(e, "#portfolio"),
+      type: "internal"
     },
     {
       href: "#awards",
       label: "Awards",
       icon: <Award />,
       onClick: (e) => handleLinkClick(e, "#awards"),
+      type: "internal"
     },
     {
       href: "#contact",
       label: "Contact",
       icon: <Mail />,
       onClick: (e) => handleLinkClick(e, "#contact"),
+      type: "internal"
+    },
+    {
+      type: "divider"
+    },
+    {
+      href: "https://github.com/Teddy-137",
+      label: "GitHub",
+      icon: <Github />,
+      onClick: () => handleExternalLink("https://github.com/Teddy-137"),
+      type: "external"
+    },
+    {
+      href: "https://linkedin.com/in/tewodros-anteneh-137304370/",
+      label: "LinkedIn",
+      icon: <Linkedin />,
+      onClick: () => handleExternalLink("https://linkedin.com/in/tewodros-anteneh-137304370/"),
+      type: "external"
+    },
+    {
+      href: "mailto:tewodros.anteneh@example.com",
+      label: "Email",
+      icon: <Mail />,
+      onClick: () => window.location.href = "mailto:tewodros.anteneh@example.com",
+      type: "external"
     },
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex justify-center z-50 pointer-events-none">
+    <div className="hidden md:flex fixed bottom-0 left-0 right-0 justify-center z-50 pointer-events-none mb-4">
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className="flex items-end h-20 gap-4 rounded-2xl bg-gray-900/50 backdrop-blur-md border border-neutral-700/50 pb-3 px-4 pointer-events-auto"
+        className="flex items-end h-20 gap-3 rounded-2xl bg-gray-900/50 backdrop-blur-md border border-neutral-700/50 pb-3 px-4 pointer-events-auto shadow-xl"
         role="toolbar"
         aria-label="Application dock"
       >
-        {items.map((item, index) => (
-          <DockItem
-            key={index}
-            onClick={item.onClick}
-            mouseX={mouseX}
-            spring={spring}
-            distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
-          >
-            <DockIcon>{item.icon}</DockIcon>
-            <DockLabel>{item.label}</DockLabel>
-          </DockItem>
-        ))}
+        {items.map((item, index) => {
+          if (item.type === "divider") {
+            return (
+              <div
+                key={`divider-${index}`}
+                className="w-px h-12 bg-neutral-700/50 mx-1 self-center"
+              />
+            );
+          }
+          return (
+            <DockItem
+              key={index}
+              onClick={item.onClick}
+              mouseX={mouseX}
+              spring={spring}
+              distance={distance}
+              magnification={magnification}
+              baseItemSize={baseItemSize}
+            >
+              <DockIcon>{item.icon}</DockIcon>
+              <DockLabel>{item.label}</DockLabel>
+            </DockItem>
+          );
+        })}
       </motion.div>
     </div>
   );

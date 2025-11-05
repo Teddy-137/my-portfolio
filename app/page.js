@@ -12,9 +12,8 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import Dock from "../components/Dock";
 
-
-// Lazy load the DarkVeil background component
-const DarkVeil = dynamic(() => import("../components/DarkVeil"), {
+// Lazy load the heavy Prism component
+const Prism = dynamic(() => import("../components/prism"), {
   ssr: false,
   loading: () => <div className="w-full h-full bg-black" />
 });
@@ -32,14 +31,17 @@ export default function App() {
           zIndex: -1,
           background: 'transparent'
         }}>
-          <DarkVeil
-            speed={0.3}
-            hueShift={260}
-            noiseIntensity={0.02}
-            scanlineIntensity={0}
-            scanlineFrequency={0}
-            warpAmount={0.3}
-            resolutionScale={0.8}
+          <Prism
+            animationType="rotate"
+            timeScale={0.2}
+            height={3.5}
+            baseWidth={5.5}
+            scale={3}
+            hueShift={0}
+            colorFrequency={0.5}
+            noise={0}
+            glow={0.4}
+            suspendWhenOffscreen={true}
           />
         </div>
         <div className="relative z-10">
