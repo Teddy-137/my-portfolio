@@ -64,127 +64,25 @@ const About = () => (
             </div>
             <h3 className="text-2xl font-semibold text-white">Skills</h3>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {[
-              {
-                name: "Java",
-                icon: <FaJava className="text-2xl" />,
-                color: "from-orange-500 to-red-500",
-                delay: 0,
-              },
-              {
-                name: "Python",
-                icon: <FaPython className="text-2xl" />,
-                color: "from-blue-400 to-yellow-400",
-                delay: 0.1,
-              },
-              {
-                name: "C++",
-                icon: <SiCplusplus className="text-2xl" />,
-                color: "from-blue-500 to-purple-500",
-                delay: 0.2,
-              },
-              {
-                name: "SQL",
-                icon: <FaDatabase className="text-2xl" />,
-                color: "from-cyan-400 to-blue-500",
-                delay: 0.3,
-              },
-              {
-                name: "HTML5",
-                icon: <FaHtml5 className="text-2xl" />,
-                color: "from-orange-600 to-red-600",
-                delay: 0.4,
-              },
-              {
-                name: "CSS3",
-                icon: <FaCss3Alt className="text-2xl" />,
-                color: "from-blue-500 to-cyan-400",
-                delay: 0.5,
-              },
-              {
-                name: "Django",
-                icon: <SiDjango className="text-2xl" />,
-                color: "from-green-600 to-emerald-500",
-                delay: 0.6,
-              },
-              {
-                name: "FastAPI",
-                icon: <SiFastapi className="text-2xl" />,
-                color: "from-teal-400 to-green-500",
-                delay: 0.7,
-              },
-              {
-                name: "Docker",
-                icon: <FaDocker className="text-2xl" />,
-                color: "from-blue-400 to-cyan-500",
-                delay: 0.8,
-              },
-              {
-                name: "Git",
-                icon: <FaGitAlt className="text-2xl" />,
-                color: "from-orange-500 to-red-500",
-                delay: 0.9,
-              },
-              {
-                name: "GitHub",
-                icon: <FaGithub className="text-2xl" />,
-                color: "from-gray-400 to-gray-600",
-                delay: 1.0,
-              },
+              { name: "Python", icon: <FaPython /> },
+              { name: "C++", icon: <SiCplusplus /> },
+              { name: "Java", icon: <FaJava /> },
+              { name: "SQL", icon: <FaDatabase /> },
+              { name: "Django", icon: <SiDjango /> },
+              { name: "FastAPI", icon: <SiFastapi /> },
+              { name: "Docker", icon: <FaDocker /> },
+              { name: "Git", icon: <FaGitAlt /> },
+
             ].map((skill, index) => (
-              <motion.div
+              <div
                 key={skill.name}
-                className="relative group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: skill.delay,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.1,
-                  y: -4,
-                  transition: { 
-                    duration: 0.3,
-                    ease: "easeOut"
-                  }
-                }}
+                className="flex items-center gap-3 p-3 rounded-xl bg-neutral-800/30 border border-neutral-700/50 text-gray-300 hover:text-sky-400 hover:border-sky-400/30 transition-all duration-300"
               >
-                <motion.div
-                  className={`bg-gradient-to-br ${skill.color} p-3 rounded-full text-sm font-medium flex items-center justify-center shadow-lg cursor-pointer relative overflow-hidden`}
-                  title={skill.name}
-                  animate={{
-                    y: [0, -4, 0],
-                  }}
-                  transition={{
-                    duration: 3 + index * 0.3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: skill.delay,
-                  }}
-                >
-                  <span className="relative z-10 text-white drop-shadow-lg">
-                    {skill.icon}
-                  </span>
-                </motion.div>
-
-                {/* Tooltip */}
-                <motion.div
-                  className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none border border-neutral-700 shadow-xl transition-opacity duration-200"
-                  initial={{ opacity: 0, y: 5 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                >
-                  {skill.name}
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45 border-r border-b border-neutral-700"></div>
-                </motion.div>
-
-                {/* Subtle glow effect on hover */}
-                <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-20 blur-xl -z-10 transition-opacity duration-300`} />
-              </motion.div>
+                <span className="text-xl">{skill.icon}</span>
+                <span className="text-sm font-medium">{skill.name}</span>
+              </div>
             ))}
           </div>
         </SpotlightCard>

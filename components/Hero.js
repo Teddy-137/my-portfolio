@@ -36,18 +36,22 @@ const useTypingEffect = (words, typingSpeed = 100, deletingSpeed = 50, delayBetw
 
 const Hero = () => {
   const roles = [
-    "Backend Web Developer",
-    "Full Stack Developer",
-    "AI/ML Enthusiast",
-    "Problem Solver",
-    "Tech Innovator"
+    "Backend Developer",
+    "Computer Engineering Student",
+    "Mathematics Enthusiast",
+    "Logic & Algorithms"
   ];
 
   const typingText = useTypingEffect(roles);
 
   return (
-    <Section id="home" className="flex items-center justify-center min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <Section id="home" className="flex items-center justify-center min-h-screen relative overflow-hidden">
+      {/* Subtle Mathematical Motif Background */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none select-none flex items-center justify-center text-[10rem] font-serif italic text-white">
+        f(x) = ∫ log(n)
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Main Heading */}
         <motion.h1
           className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white"
@@ -55,26 +59,25 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400/90 to-purple-400/90">Tewodros Anteneh</span>
+          Tewodros Anteneh
         </motion.h1>
 
         {/* Animated Typing Effect */}
         <motion.div
-          className="text-xl md:text-2xl font-medium text-gray-300 mb-8 min-h-[40px] flex items-center justify-center"
+          className="text-xl md:text-2xl font-medium text-gray-400 mb-8 min-h-[40px] flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <span className="mr-2 text-gray-400">I&apos;m a</span>
-          <span className="text-sky-300">
-            {typingText}
+          <span className="text-sky-400/90 font-mono">
+            {`> `}{typingText}
           </span>
           <motion.span
             className="ml-1 text-sky-300"
             animate={{ opacity: [1, 0.3] }}
             transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
           >
-            |
+            _
           </motion.span>
         </motion.div>
 
@@ -85,9 +88,9 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Electrical & Computer Engineering student specializing in software development.
+          Electrical & Computer Engineering student at AASTU.
           <br className="hidden md:block" />
-          Passionate about building innovative solutions through code.
+          Exploring the intersection of software engineering and mathematical logic.
         </motion.p>
 
         {/* Buttons */}
@@ -98,17 +101,17 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.7 }}
         >
           <motion.a
-            href="#contact"
+            href="#portfolio"
             className="px-8 py-3 bg-white text-gray-900 font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            Get In Touch
+            View Work
           </motion.a>
           <motion.a
             href="/assets/Tewodros_m_Resume.pdf"
             download="Tewodros_Anteneh_Resume.pdf"
-            className="px-8 py-3 border-2 border-gray-400 text-gray-300 font-medium rounded-lg hover:border-white hover:text-white transition-all duration-300"
+            className="px-8 py-3 border-2 border-neutral-700 text-gray-300 font-medium rounded-lg hover:border-white hover:text-white transition-all duration-300"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
           >

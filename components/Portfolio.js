@@ -43,7 +43,7 @@ const Portfolio = () => {
   }, [activeFilter, projects]);
 
   return (
-    <Section id="portfolio" className="bg-gray-900/50 backdrop-blur-sm">
+    <Section id="portfolio" className="">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
@@ -51,7 +51,7 @@ const Portfolio = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-purple-500 mx-auto rounded-full"></div>
           <p className="text-lg text-gray-400 mt-6 max-w-3xl mx-auto">
-            Explore my recent work showcasing innovative solutions and creative problem-solving
+            Explore my recent work showcasing technical architecture and efficient implementation.
           </p>
         </div>
 
@@ -61,11 +61,10 @@ const Portfolio = () => {
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeFilter === category
-                  ? "bg-gradient-to-r from-sky-400 to-purple-500 text-white shadow-lg"
-                  : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
-              }`}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === category
+                ? "bg-gradient-to-r from-sky-400 to-purple-500 text-white shadow-lg"
+                : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+                }`}
             >
               {category}
             </button>
@@ -81,7 +80,7 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="block h-full flex flex-col"
               >
-                <div className="relative h-56 bg-gray-800">
+                <div className="relative h-56 bg-neutral-900/50 overflow-hidden">
                   <Image
                     src={project.imageUrl}
                     alt={project.title}
@@ -91,7 +90,11 @@ const Portfolio = () => {
                     loading="lazy"
                     quality={75}
                   />
-                  <div className="absolute inset-0 bg-black/50"></div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white font-medium px-4 py-2 border border-white/30 rounded-full backdrop-blur-sm">
+                      View Project
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6 flex-grow flex flex-col">
                   <h3 className="text-2xl font-bold text-white mb-2">

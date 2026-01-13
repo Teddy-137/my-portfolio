@@ -68,43 +68,43 @@ const Awards = () => {
               viewport={{ once: true }}
             >
               <SpotlightCard className="text-center h-full flex flex-col">
-                  {/* Animated Icon Container */}
-                  <div className={`w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br ${award.gradient} shadow-lg`}>
-                    {award.icon}
-                  </div>
+                {/* Animated Icon Container */}
+                <div className={`w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br ${award.gradient} shadow-lg`}>
+                  {award.icon}
+                </div>
 
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {award.title}
-                  </h3>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {award.title}
+                </h3>
 
-                  <p className="text-purple-300 mb-3 font-medium text-base">
-                    {award.category}
-                  </p>
+                <p className="text-purple-300 mb-3 font-medium text-base">
+                  {award.category}
+                </p>
 
-                  <p className="text-gray-400 mb-6 flex-grow">
-                    {award.description}
-                  </p>
+                <p className="text-gray-400 mb-6 flex-grow">
+                  {award.description}
+                </p>
 
-                  <div className="flex flex-wrap gap-2 justify-center mb-4">
-                    {award.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-600 hover:border-gray-500 transition-colors duration-200"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 justify-center mb-4">
+                  {award.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-600 hover:border-gray-500 transition-colors duration-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-                  <a
-                    href={award.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-purple-300 hover:text-purple-200 transition-colors duration-200 font-medium inline-flex items-center gap-2 justify-center"
-                  >
-                    <AwardIcon className="w-4 h-4" />
-                    View Certificate
-                  </a>
+                <a
+                  href={award.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-300 hover:text-purple-200 transition-colors duration-200 font-medium inline-flex items-center gap-2 justify-center"
+                >
+                  <AwardIcon className="w-4 h-4" />
+                  View Certificate
+                </a>
               </SpotlightCard>
             </motion.div>
           ))}
@@ -118,28 +118,22 @@ const Awards = () => {
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-gray-600 transition-colors duration-300">
-            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-2">
-              1st
-            </div>
-            <p className="text-gray-400">Place Winner</p>
+          <div className="bg-neutral-900/40 backdrop-blur-md p-6 rounded-2xl border border-neutral-700/50 hover:border-sky-400/30 transition-all duration-300">
+            <div className="text-3xl font-bold text-sky-400 mb-2">🥇</div>
+            <p className="text-gray-300 font-medium">Place Winner</p>
             <p className="text-sm text-gray-500">Tech Fest 2025</p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-gray-600 transition-colors duration-300">
-            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500 mb-2">
-              #1
-            </div>
-            <p className="text-gray-400">IYMC</p>
-            <p className="text-sm text-gray-500">Mathematics</p>
+          <div className="bg-neutral-900/40 backdrop-blur-md p-6 rounded-2xl border border-neutral-700/50 hover:border-purple-400/30 transition-all duration-300">
+            <div className="text-3xl font-bold text-purple-400 mb-2">🥇</div>
+            <p className="text-gray-300 font-medium">IYMC</p>
+            <p className="text-sm text-gray-500">National Top Scorer</p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-gray-600 transition-colors duration-300">
-            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2">
-              🥈
-            </div>
-            <p className="text-gray-400">Silver Honor</p>
-            <p className="text-sm text-gray-500">Mathematics</p>
+          <div className="bg-neutral-900/40 backdrop-blur-md p-6 rounded-2xl border border-neutral-700/50 hover:border-pink-400/30 transition-all duration-300">
+            <div className="text-3xl font-bold text-pink-400 mb-2">🥈</div>
+            <p className="text-gray-300 font-medium">Silver Honor</p>
+            <p className="text-sm text-gray-500">International Mathematics</p>
           </div>
         </motion.div>
       </div>
