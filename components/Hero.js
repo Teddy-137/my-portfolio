@@ -39,7 +39,6 @@ const Hero = () => {
     "Backend Developer",
     "Computer Engineering Student",
     "Mathematics Enthusiast",
-    "Logic & Algorithms"
   ];
 
   const typingText = useTypingEffect(roles);
@@ -90,7 +89,6 @@ const Hero = () => {
         >
           Electrical & Computer Engineering student at AASTU.
           <br className="hidden md:block" />
-          Exploring the intersection of software engineering and mathematical logic.
         </motion.p>
 
         {/* Buttons */}
