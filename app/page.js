@@ -27,31 +27,34 @@ const Background = () => {
         }}
       />
 
-      {/* Subtle moving stars/particles using CSS */}
+      {/* Subtle moving math symbols */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {['+', '×', '∫', '√', '∆', 'π', 'Σ', '∞'].map((symbol, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-white/20"
+            className="absolute text-white/10 font-serif pointer-events-none select-none"
             initial={{
-              x: Math.random() * 100 + "%",
+              x: (i * 15) % 100 + "%",
               y: Math.random() * 100 + "%",
-              size: Math.random() * 2 + 1
+              scale: Math.random() * 0.5 + 0.5
             }}
             animate={{
-              y: [null, "-10%"],
-              opacity: [0.2, 0.5, 0.2]
+              y: [null, "-20%"],
+              opacity: [0.05, 0.15, 0.05],
+              rotate: [0, 360]
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 20 + 20,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
+              delay: i * 2
             }}
             style={{
-              width: `${Math.random() * 2 + 1}px`,
-              height: `${Math.random() * 2 + 1}px`,
+              fontSize: `${Math.random() * 1.5 + 1}rem`,
             }}
-          />
+          >
+            {symbol}
+          </motion.div>
         ))}
       </div>
     </div>

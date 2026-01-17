@@ -105,6 +105,7 @@ const Dock = ({
   baseItemSize = 50,
 }) => {
   const mouseX = useMotionValue(Infinity);
+  const [copied, setCopied] = React.useState(false);
 
   const handleLinkClick = (e, href) => {
     e.preventDefault();
@@ -113,6 +114,14 @@ const Dock = ({
 
   const handleExternalLink = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleEmailClick = () => {
+    const email = "tewodros.anteneh@example.com";
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   const items = [
@@ -169,10 +178,10 @@ const Dock = ({
       type: "external"
     },
     {
-      href: "mailto:tewodros.anteneh@example.com",
-      label: "Email",
+      href: "#",
+      label: copied ? "Copied!" : "Copy Email",
       icon: <Mail />,
-      onClick: () => window.location.href = "mailto:tewodros.anteneh@example.com",
+      onClick: handleEmailClick,
       type: "external"
     },
   ];

@@ -75,6 +75,7 @@ const About = () => (
               { name: "Docker", icon: <FaDocker /> },
               { name: "Git", icon: <FaGitAlt /> },
 
+
             ].map((skill, index) => (
               <div
                 key={skill.name}
